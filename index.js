@@ -63,7 +63,7 @@ const fetchResource = async (path, userOptions = {}) => {
 };
 
 ////////// API Wrapper //////////
-class ApiWrapper {
+export default class ApiWrapper {
     constructor() {
         this.jwt = '';
     };
@@ -176,5 +176,3 @@ class ApiWrapper {
         });
     }
 }
-
-export default ApiWrapper;
