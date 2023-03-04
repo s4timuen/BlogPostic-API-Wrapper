@@ -1,5 +1,3 @@
-import endpoints from './endpoints.json';
-
 const rootUrl = 'https://127.0.0.1';
 const port = '5200';
 const api = '/api/v1'
@@ -51,7 +49,7 @@ const fetchResource = async (path, userOptions = {}) => {
         options.body = JSON.stringify(options.body);
     }
 
-    return await fetch(url, options) // TODO: POST, etc?
+    return await fetch(url, options)
         .then(responseObject => {
             return responseObject.json();
         })
@@ -66,38 +64,116 @@ const fetchResource = async (path, userOptions = {}) => {
 
 ////////// API Wrapper //////////
 class ApiWrapper {
-    constructor() {};
+    constructor() {
+        this.jwt = '';
+    };
 
-    signin() {
-
+    /**
+     * Set jwt for auth.
+     */
+    setJwt(jwt) {
+        this.jwt = jwt;
     }
 
-    login() {
-
+    ////////// Requests //////////
+    /**
+     * Sign in a user.
+     */
+    signup(firstName, lastName, email, password, passwordConfirm) {
+        return fetchResource('users/signup', {
+            method: 'POST',
+            headers: {},
+            body: {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                passwordConfirm: passwordConfirm
+            }
+        });
     }
 
+    /**
+     * Login a user.
+     */
+    login(email, password) {
+        return fetchResource('users/login', {
+            method: 'POST',
+            headers: {},
+            body: {
+                email: email,
+                password: password
+            }
+        });
+    }
+
+    /**
+     * Logout a user.
+     */
     logout() {
-
+        return fetchResource('users/logout', {
+            method: 'GET',
+            headers: {},
+            body: {}
+        });
     }
 
     getAllUsers() {
-        return fetchResource('users');
+        return fetchResource('users', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: {}
+        });
     }
 
-    createUser() {
-
+    getUserById(userId) {
+        return fetchResource(`users/${userId}`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: {}
+        });
     }
 
-    getUserById() {
-
+    createUser(firstName, lastName, email, password, passwordConfirm) {
+        return fetchResource('users', {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: {
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+                passwordConfirm: passwordConfirm
+            }
+        });
     }
 
-    updateUserById() {
-
+    updateUserById(userId, data) {
+        return fetchResource(`users/${userId}`, {
+            method: 'PATCH',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: {
+                ...data
+            }
+        });
     }
 
-    deleteUserById() {
-
+    deleteUserById(userId) {
+        return fetchResource(`users/${userId}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: {}
+        });
     }
 }
 
