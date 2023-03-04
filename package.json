@@ -1,0 +1,22 @@
+{
+  "name": "BlogPostic-API-Wrapper",
+  "version": "0.1.0",
+  "description": "API-Wrapper for BlogPostic social media platform API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s4timuen/BlogPostic-API-Wrapper.git"
+  },
+  "keywords": [
+    "api-wrapper"
+  ],
+  "author": "Tim Münzinger",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/s4timuen/BlogPostic-API-Wrapper/issues"
+  },
+  "homepage": "https://github.com/s4timuen/BlogPostic-API-Wrapper#readme"
+}
