@@ -68,35 +68,35 @@ const fetchResource = async (path, userOptions = {}) => {
 class ApiWrapper {
     constructor() {};
 
-    static signin() {
+    signin() {
 
     }
 
-    static login() {
+    login() {
 
     }
 
-    static logout() {
+    logout() {
 
     }
 
-    static getAllUsers() {
+    getAllUsers() {
         return fetchResource('users');
     }
 
-    static createUser() {
+    createUser() {
 
     }
 
-    static getUserById() {
+    getUserById() {
 
     }
 
-    static updateUserById() {
+    updateUserById() {
 
     }
 
-    static deleteUserById() {
+    deleteUserById() {
 
     }
 }
