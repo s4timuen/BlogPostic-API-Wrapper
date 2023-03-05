@@ -113,8 +113,7 @@ export default class ApiWrapper {
     logout() {
         return fetchResource('users/logout', {
             method: 'GET',
-            headers: {},
-            body: {}
+            headers: {}
         });
     }
 
@@ -123,8 +122,7 @@ export default class ApiWrapper {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${this.jwt}`,
-            },
-            body: {}
+            }
         });
     }
 
@@ -133,8 +131,7 @@ export default class ApiWrapper {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${this.jwt}`,
-            },
-            body: {}
+            }
         });
     }
 
@@ -171,8 +168,7 @@ export default class ApiWrapper {
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${this.jwt}`,
-            },
-            body: {}
+            }
         });
     }
 }
