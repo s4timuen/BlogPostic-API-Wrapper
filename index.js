@@ -32,7 +32,7 @@ const fetchResource = async (path, userOptions = {}) => {
     const defaultHeaders = {};
 
     const url = `${apiUrl}/${path}`;
-    const isFile = options.body instanceof File;
+    const isFile = userOptions.body instanceof File;
 
     let response = null;
 
