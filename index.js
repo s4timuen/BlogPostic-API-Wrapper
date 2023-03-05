@@ -1,5 +1,5 @@
 const rootUrl = 'https://127.0.0.1';
-const port = '5200';
+const port = ':5200';
 const api = '/api/v1'
 
 const apiUrl = rootUrl.concat(port).concat(api);
