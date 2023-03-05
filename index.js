@@ -49,7 +49,7 @@ const fetchResource = async (path, userOptions = {}) => {
         options.body = JSON.stringify(options.body);
     }
 
-    return await fetch(url, options) // TODO: fix: ERR_SSL_PROTOCOL_ERROR
+    return await fetch(url, options)
         .then(responseObject => {
             return responseObject.json();
         })
