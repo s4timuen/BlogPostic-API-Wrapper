@@ -1,4 +1,4 @@
-const rootUrl = 'https://127.0.0.1';
+const rootUrl = 'http://127.0.0.1';
 const port = ':5200';
 const api = '/api/v1'
 
@@ -49,7 +49,7 @@ const fetchResource = async (path, userOptions = {}) => {
         options.body = JSON.stringify(options.body);
     }
 
-    return await fetch(url, options)
+    return await fetch(url, options) // TODO: fix: ERR_SSL_PROTOCOL_ERROR
         .then(responseObject => {
             return responseObject.json();
         })
