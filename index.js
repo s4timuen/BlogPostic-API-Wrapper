@@ -176,4 +176,14 @@ export default class ApiWrapper {
             }
         });
     }
+
+    getMe(userId) {
+        return fetchResource(`users/me`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            }
+        });
+    }
+    
 }
