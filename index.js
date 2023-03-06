@@ -28,7 +28,9 @@ class ApiError {
 
 ////////// Fetch Functionality //////////
 const fetchResource = async (path, userOptions = {}) => {
-    const defaultOptions = {};
+    const defaultOptions = {
+        credentials: 'include'
+    };
     const defaultHeaders = {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -52,7 +54,7 @@ const fetchResource = async (path, userOptions = {}) => {
         options.body = JSON.stringify(options.body);
     }
 
-    return await fetch(url, options)
+    return fetch(url, options)
         .then(responseObject => {
             return responseObject.json();
         })
