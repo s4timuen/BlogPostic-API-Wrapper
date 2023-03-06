@@ -29,7 +29,10 @@ class ApiError {
 ////////// Fetch Functionality //////////
 const fetchResource = async (path, userOptions = {}) => {
     const defaultOptions = {};
-    const defaultHeaders = {};
+    const defaultHeaders = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+    };
 
     const url = `${apiUrl}/${path}`;
     const isFile = userOptions.body instanceof File;
