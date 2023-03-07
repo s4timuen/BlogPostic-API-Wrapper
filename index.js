@@ -80,10 +80,7 @@ export default class ApiWrapper {
         this.jwt = jwt;
     }
 
-    ////////// Requests //////////
-    /**
-     * Sign in a user.
-     */
+    ////////// Users Requests //////////
     signup(firstName, lastName, email, password, passwordConfirm) {
         return fetchResource('users/signup', {
             method: 'POST',
@@ -98,9 +95,6 @@ export default class ApiWrapper {
         });
     }
 
-    /**
-     * Login a user.
-     */
     login(email, password) {
         return fetchResource('users/login', {
             method: 'POST',
@@ -112,9 +106,6 @@ export default class ApiWrapper {
         });
     }
 
-    /**
-     * Logout a user.
-     */
     logout() {
         return fetchResource('users/logout', {
             method: 'GET',
@@ -178,12 +169,30 @@ export default class ApiWrapper {
     }
 
     getMe(userId) {
-        return fetchResource(`users/me`, {
+        return fetchResource('users/me', {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${this.jwt}`,
             }
         });
     }
-    
+
+    forgotPassword(email) {
+        return fetchResource('users/forgot-password', {
+            method: 'POST',
+            headers: {},
+            body: { email: email }
+        });
+    }
+
+    resetPassword(token, password, passwordConfirm) {
+        return fetchResource(`users/reset-password/${token}`, {
+            method: 'PATCH',
+            headers: {},
+            body: {
+                password: password,
+                passwordConfirm: passwordConfirm
+            }
+        });
+    }
 }
