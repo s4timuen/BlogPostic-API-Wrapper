@@ -225,4 +225,20 @@ export default class ApiWrapper {
             }
         });
     }
+
+    reactivateUserToken(email) {
+        return fetchResource('users/reactivate-user', {
+            method: 'POST',
+            headers: {},
+            body: { email }
+        });
+    }
+
+    reactivateUser(token) {
+        return fetchResource(`users/reactivate-user/${token}`, {
+            method: 'GET',
+            headers: {},
+            body: {}
+        });
+    }
 }
