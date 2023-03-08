@@ -86,11 +86,11 @@ export default class ApiWrapper {
             method: 'POST',
             headers: {},
             body: {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-                passwordConfirm: passwordConfirm
+                firstName,
+                lastName,
+                email,
+                password,
+                passwordConfirm
             }
         });
     }
@@ -100,8 +100,8 @@ export default class ApiWrapper {
             method: 'POST',
             headers: {},
             body: {
-                email: email,
-                password: password
+                email,
+                password
             }
         });
     }
@@ -138,11 +138,11 @@ export default class ApiWrapper {
                 Authorization: `Bearer ${this.jwt}`,
             },
             body: {
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-                passwordConfirm: passwordConfirm
+                firstName,
+                lastName,
+                email,
+                password,
+                passwordConfirm
             }
         });
     }
@@ -181,7 +181,7 @@ export default class ApiWrapper {
         return fetchResource('users/forgot-password', {
             method: 'POST',
             headers: {},
-            body: { email: email }
+            body: { email }
         });
     }
 
@@ -190,8 +190,20 @@ export default class ApiWrapper {
             method: 'PATCH',
             headers: {},
             body: {
-                password: password,
-                passwordConfirm: passwordConfirm
+                password,
+                passwordConfirm
+            }
+        });
+    }
+
+    updatePassword(passwordCurrent, passwordNew, passwordConfirm) {
+        return fetchResource('users/update-password', {
+            method: 'PATCH',
+            header: {},
+            body: {
+                passwordCurrent,
+                passwordNew,
+                passwordConfirm
             }
         });
     }
