@@ -216,4 +216,13 @@ export default class ApiWrapper {
             }
         });
     }
+
+    deactivateMe() {
+        return fetchResource('users/deactivate-me', {
+            method: 'PATCH',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            }
+        });
+    }
 }
