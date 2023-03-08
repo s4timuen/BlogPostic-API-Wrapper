@@ -168,7 +168,7 @@ export default class ApiWrapper {
         });
     }
 
-    getMe(userId) {
+    getMe() {
         return fetchResource('users/me', {
             method: 'GET',
             headers: {
@@ -204,6 +204,15 @@ export default class ApiWrapper {
                 passwordCurrent,
                 passwordNew,
                 passwordConfirm
+            }
+        });
+    }
+
+    deleteMe() {
+        return fetchResource('users/delete-me', {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
             }
         });
     }
