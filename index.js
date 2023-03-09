@@ -241,4 +241,14 @@ export default class ApiWrapper {
             body: {}
         });
     }
+
+    updateMyData(data) {
+        return fetchResource('users/update-my-data', {
+            method: 'PATCH',
+            headers: {
+                Authorization: `Bearer ${this.jwt}`,
+            },
+            body: { ...data }
+        });
+    }
 }
