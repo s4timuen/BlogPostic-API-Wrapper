@@ -6,7 +6,7 @@ const api = '/api/v1'
 
 const apiUrl = rootUrl.concat(':').concat(port).concat(api);
 
-export default fetchResource = async (path, userOptions = {}) => {
+export default async (path, userOptions = {}) => {
     const defaultOptions = {
         credentials: 'include'
     };
