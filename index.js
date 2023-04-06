@@ -21,4 +21,14 @@ export default class ApiWrapper {
     setJwt(jwt) {
         this.jwt = jwt;
     }
+
+    /**
+     * Ping API.
+     */
+    pingAPI() {
+        return fetchResource('', {
+            method: 'GET',
+            headers: {}
+        });
+    }
 }
